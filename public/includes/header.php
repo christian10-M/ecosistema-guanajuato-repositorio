@@ -17,7 +17,8 @@
 
 <header class="header">
   <div class="logo">
-    <img src="assets/ECOSAFE-1.png" alt="logo">
+    <img src="assets/ECOSAFE-0.5.png" alt="logo">
+    <span>EcoSafe</span>
   </div>
 
   <nav class="nav">
