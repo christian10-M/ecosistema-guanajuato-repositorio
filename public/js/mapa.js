@@ -10,6 +10,13 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 const capaAgua = L.layerGroup().addTo(map);
 //CAPA MINAS
 const capaMinas = L.layerGroup().addTo(map);
+//CAPA LADRILLERAS
+const capaLadrilleras = L.layerGroup().addTo(map);
+//CAPA RETC
+const capaRETC = L.layerGroup().addTo(map);
+//CAPA SALUD
+const capaSalud = L.layerGroup().addTo(map);
+
 
 //Conexion con el backend
 //Refactorizamos código lol
@@ -56,8 +63,42 @@ cargarCapa({
   `
 });
 
+cargarCapa({
+  url: 'api/ladrilleras.php',
+  capa: capaLadrilleras,
+  color: '#e19613ff',
+  popup: p => `
+    <strong>Municipio:</strong> ${p.municipio}<br>
+    <strong>Estado:</strong> ${p.estado}
+  `
+});
+
+cargarCapa({
+  url: 'api/retc.php',
+  capa: capaRETC,
+  color: '#bb13e1ff',
+  popup: p => `
+    <strong>Municipio:</strong> ${p.municipio}<br>
+    <strong>Estado:</strong> ${p.estado}
+  `
+});
+
+cargarCapa({
+  url: 'api/salud.php',
+  capa: capaSalud,
+  color: '#13a3e1ff',
+  popup: p => `
+    <strong>Municipio:</strong> ${p.municipio}<br>
+    <strong>Estado:</strong> ${p.estado}
+  `
+});
+
+
 //Caja para activar/desactivar capas
 L.control.layers(null, {
   "Agua": capaAgua,
-  "Minas": capaMinas
+  "Minas": capaMinas,
+  "Ladrilleras": capaLadrilleras,
+  "RETC":capaRETC,
+  "Servicios de Salud":capaSalud
 }).addTo(map);
