@@ -5,19 +5,22 @@ body {
 
 .header {
     background-color: #7aa66c;
-    padding: 10px 30px;
+    padding:  2px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #0F4E35;
+    color: #09482C;
     font-weight: bold;
-    font-size: 50px;
+    font-size: 30px;
 }
 
 .header img{
@@ -25,13 +28,34 @@ body {
     height: 80px;
 }
 
-.nav a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
+.nav {
+    display: flex;
+    gap: 2rem;
+    font-size: 20px;
+    margin-right: 20px;
 }
 
-.nav a:hover {
-    text-decoration: underline;
+.nav a {
+    position: relative;
+    text-decoration: none;
+    color: #1a3c1c;
+    font-weight: 500;
+    padding: 4px 0;
+}
+
+.nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background-color: #133514;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.nav a:hover::after {
+    transform: scaleX(1); 
 }

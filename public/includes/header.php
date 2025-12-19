@@ -19,6 +19,7 @@
   <div class="logo">
     <img src="assets/ECOSAFE-0.5.png" alt="logo">
     <span>EcoSafe</span>
+    <h4>Guanajuato</h4>
   </div>
 
   <nav class="nav">
@@ -27,3 +28,4 @@
     <a href="poblacion.php">Población</a>
   </nav>
 </header>
+
