@@ -7,11 +7,13 @@ $sql = "
 SELECT
   LATITUD  AS lat,
   LONGITUD AS lng,
+  Nombre AS nombre,
   MUNICIPIO AS municipio,
   ESTADO AS estado
 FROM agua
 WHERE LATITUD IS NOT NULL
   AND LONGITUD IS NOT NULL
+  AND ESTADO='guanajuato'
 ";
 
 $stmt = $pdo->query($sql);

@@ -48,8 +48,8 @@ cargarCapa({
   capa: capaAgua,
   color: '#0077cc',
   popup: p => `
-    <strong>Municipio:</strong> ${p.municipio}<br>
-    <strong>Estado:</strong> ${p.estado}
+    <strong>Nombre:</strong> ${p.nombre}<br>
+    <strong>Municipio:</strong> ${p.municipio}
   `
 });
 
@@ -58,8 +58,8 @@ cargarCapa({
   capa: capaMinas,
   color: '#b30000',
   popup: p => `
-    <strong>Municipio:</strong> ${p.municipio}<br>
-    <strong>Estado:</strong> ${p.estado}
+    <strong>Nombre:</strong> ${p.nombre}<br>
+    <strong>Municipio:</strong> ${p.municipio}
   `
 });
 
@@ -69,7 +69,7 @@ cargarCapa({
   color: '#e19613ff',
   popup: p => `
     <strong>Municipio:</strong> ${p.municipio}<br>
-    <strong>Estado:</strong> ${p.estado}
+    <strong>Localidad:</strong> ${p.localidad}
   `
 });
 
@@ -78,8 +78,8 @@ cargarCapa({
   capa: capaRETC,
   color: '#bb13e1ff',
   popup: p => `
-    <strong>Municipio:</strong> ${p.municipio}<br>
-    <strong>Estado:</strong> ${p.estado}
+    <strong>Nombre:</strong> ${p.nombre}<br>
+    <strong>Municipio:</strong> ${p.municipio}
   `
 });
 
@@ -88,8 +88,8 @@ cargarCapa({
   capa: capaSalud,
   color: '#13a3e1ff',
   popup: p => `
-    <strong>Municipio:</strong> ${p.municipio}<br>
-    <strong>Estado:</strong> ${p.estado}
+    <strong>Nombre:</strong> ${p.nombre}<br>
+    <strong>Municipio:</strong> ${p.municipio}
   `
 });
 
