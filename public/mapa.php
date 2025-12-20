@@ -13,6 +13,8 @@
 <link rel="stylesheet"href="https://unpkg.com/leaflet.fullscreen@1.6.0/Control.FullScreen.css"/>
   <!-- CSS mapa -->
   <link rel="stylesheet" href="/ecosistema-guanajuato-repositorio/public/css/mapa.css">
+<!-- CHOICES.JS -->
+ <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
 
 
 </head>
@@ -35,6 +37,8 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <!-- Fullscreen plugin -->
 <script src="https://unpkg.com/leaflet.fullscreen@1.6.0/Control.FullScreen.js"></script>
+<!-- CHOICES -->
+ <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 <!--Importar el js del mapa-->
 <script src="js/mapa.js"></script>
 <!-- Ctrl K + Ctrl C :ATAJO PARA COMENTAR -->

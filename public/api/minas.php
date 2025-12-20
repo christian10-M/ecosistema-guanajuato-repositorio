@@ -16,6 +16,10 @@ FROM minas
 WHERE Latitud IS NOT NULL
   AND Longitud IS NOT NULL
   AND Estado='guanajuato'
+  AND Latitud <> ''
+  AND Longitud <> ''
+  AND Latitud BETWEEN -90 AND 90
+AND Longitud BETWEEN -180 AND 180
 ";
 
 $params = [];

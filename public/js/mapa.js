@@ -10,18 +10,31 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 //Todo reacciona a lo que diga el filtro
 const municipioSelect = document.getElementById('municipioSelect');
 
+const choicesMunicipio = new Choices(municipioSelect, {
+  searchEnabled: true, //ACTIVA EL BUSCADOR
+  shouldSort: false, //RESPETA EL ORDEN QUE MANDA LA BD
+  itemSelectText: '', //QUITA EL TEXTO FEO PRESS TO SELECT
+  placeholderValue: 'Buscar municipio...', //TEXTO INICIAL
+  noResultsText: 'No se encontraron municipios', //UX CUNAOD NO HAY RESULTADOS
+});
+
+console.log('Choices iniciado:', choicesMunicipio);
+
+
+
 // Cargar lista de municipios
 //No depende del front, si la BD cambia, cambia ese filtro...
 fetch('api/municipios.php')
   .then(r => r.json())
   .then(municipios => {
-    municipios.forEach(m => {
-      const option = document.createElement('option');
-      option.value = m;
-      option.textContent = m;
-      municipioSelect.appendChild(option);
-    });
+    const opciones = municipios.map(m => ({
+      value: m,
+      label: m
+    }));
+
+    choicesMunicipio.setChoices(opciones, 'value', 'label', true);
   });
+
 
 //CAPA AGUA
 const capaAgua = L.layerGroup().addTo(map);
@@ -56,17 +69,24 @@ function cargarCapa({ url, capa, color, popup, municipio }) {
     .then(data => {
     //Data es un arreglo de puntos
       data.forEach(p => {
-        //Recorre cada fila Usa lat y lng
-        L.circleMarker([p.lat, p.lng], {
-        //Estilo del punto
-          radius: 4,
-          color,
-          fillOpacity: 0.7
+        if (!p.lat || !p.lng){ 
+            console.warn('Punto inválido detectado:', p);
+            return;} //Protección
+
+        const lat = parseFloat(p.lat);
+        const lng = parseFloat(p.lng);
+
+        if (isNaN(lat) || isNaN(lng)) return;
+
+        L.circleMarker([lat, lng], {
+            radius: 4,
+            color,
+            fillOpacity: 0.7
         })
-        //Popup informativo
         .bindPopup(popup(p))
         .addTo(capa);
-      });
+        });
+
     });
 }
 

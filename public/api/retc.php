@@ -13,8 +13,12 @@ SELECT
   MUNICIPIO AS municipio,
   ESTADO AS estado
 FROM retc_leon
-WHERE Latitud IS NOT NULL
-  AND Longitud IS NOT NULL
+WHERE latitud IS NOT NULL
+  AND longitud IS NOT NULL
+  AND latitud <> ''
+  AND longitud <> ''
+  AND latitud BETWEEN -90 AND 90
+  AND longitud BETWEEN -180 AND 180
 ";
 
 $params = [];
