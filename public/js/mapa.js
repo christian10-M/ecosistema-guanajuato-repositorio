@@ -103,6 +103,7 @@ L.control.layers(null, {
   "Servicios de Salud":capaSalud
 }).addTo(map);
 
+//Boton de ampliar pantalla
 L.control.fullscreen({
   position: 'topleft'
 }).addTo(map);
