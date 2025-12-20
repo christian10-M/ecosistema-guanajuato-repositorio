@@ -11,12 +11,13 @@ require_once "../src/config/db.php";
 
 // 1. Arreglo con las tablas y el campo municipio correspondiente
 $fuentes = [
-  ['tabla' => 'agua',        'campo' => 'MUNICIPIO'],
-  ['tabla' => 'minas',       'campo' => 'Municipio'],
-  ['tabla' => 'ladrilleras', 'campo' => 'municipio'],
-  ['tabla' => 'retc_leon',        'campo' => 'MUNICIPIO'],
-  ['tabla' => 'ssguanajuato','campo' => '`Nombre Municipio`'],
+  ['tabla' => 'agua',        'campo' => 'MUNICIPIO', 'estado' => 'ESTADO'],
+  ['tabla' => 'minas',       'campo' => 'Municipio', 'estado' => 'Estado'],
+  ['tabla' => 'ladrilleras', 'campo' => 'municipio', 'estado' => 'entidad'],
+  ['tabla' => 'retc_leon',   'campo' => 'MUNICIPIO', 'estado' => 'ESTADO'],
+  ['tabla' => 'ssguanajuato','campo' => '`Nombre Municipio`', 'estado' => 'Estado'],
 ];
+
 
 // 2. Arreglo para almacenar municipios únicos
 $municipios = [];
@@ -25,10 +26,12 @@ $municipios = [];
 foreach ($fuentes as $fuente) {
 
   $sql = "
-    SELECT DISTINCT {$fuente['campo']} AS municipio
-    FROM {$fuente['tabla']}
-    WHERE {$fuente['campo']} IS NOT NULL
-  ";
+  SELECT DISTINCT {$fuente['campo']} AS municipio
+  FROM {$fuente['tabla']}
+  WHERE {$fuente['campo']} IS NOT NULL
+    AND UPPER({$fuente['estado']}) = 'GUANAJUATO'
+";
+
 
   $stmt = $pdo->query($sql);
   $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
