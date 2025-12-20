@@ -102,3 +102,7 @@ L.control.layers(null, {
   "RETC":capaRETC,
   "Servicios de Salud":capaSalud
 }).addTo(map);
+
+L.control.fullscreen({
+  position: 'topleft'
+}).addTo(map);
