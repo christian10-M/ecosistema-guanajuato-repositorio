@@ -1,0 +1,15 @@
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#map {
+/* ocupa todo lo que sobra debajo del header */
+  flex: 1; 
+}
