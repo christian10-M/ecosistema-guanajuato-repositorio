@@ -13,3 +13,14 @@ body {
 /* ocupa todo lo que sobra debajo del header */
   flex: 1; 
 }
+
+#filtros {
+  padding: 8px 12px;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+#municipioSelect {
+  width: 250px;
+  padding: 6px;
+}

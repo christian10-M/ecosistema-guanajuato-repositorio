@@ -21,6 +21,13 @@
 <!--Inserta un header común-->
   <?php include 'includes/header.php'; ?>
 
+  <div id="filtros">
+  <label for="municipioSelect">Municipio:</label>
+  <select id="municipioSelect">
+    <option value="">Todos</option>
+  </select>
+</div>
+
 <div id="map"></div>
 
 <!-- Carga los Scripts -->
