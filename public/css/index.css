@@ -20,11 +20,18 @@ body {
     border-bottom: 2px solid #e3e3e3;
 }
 
-.logo h1 {
+.logo-index {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     color: #1b5e20;
+    font-size: 18px;
 }
 
-
+.logo-index  img{
+    width: 150px;
+    height: 150px;
+}
 
 .btn-mapa {
     background: #a5d6a7;

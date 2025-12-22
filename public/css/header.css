@@ -7,6 +7,7 @@ body {
     background-color: #7aa66c;
     padding:  2px;
     display: flex;
+    height: 85px;
     align-items: center;
     justify-content: space-between;
     position: sticky;
