@@ -22,6 +22,7 @@
 <body>
 <!--Inserta un header común-->
   <?php include 'includes/header.php'; ?>
+<div id="map-wrapper">
 
   <div id="filtros">
   <label for="municipioSelect">Municipio:</label>
@@ -31,6 +32,8 @@
 </div>
 
 <div id="map"></div>
+
+</div>
 
 <!-- Carga los Scripts -->
 <!--Motor del mapa / Leaflet JS-->

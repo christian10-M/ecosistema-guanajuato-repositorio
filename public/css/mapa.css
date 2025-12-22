@@ -3,25 +3,59 @@ html, body {
   height: 100%;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+/* ===== CONTENEDOR GENERAL ===== */
+#map-wrapper {
+  position: relative;
+  height: calc(100vh - 100px); /* AJUSTA según tu header */
+  width: 100%;
 }
 
+/* ===== MAPA ===== */
 #map {
-/* ocupa todo lo que sobra debajo del header */
-  flex: 1; 
-}
-/*
-#filtros {
-  padding: 8px 12px;
-  background: #fff;
-  border-bottom: 1px solid #ccc;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;   /* 👈 ESTO ES LO QUE FALTABA */
+
+  z-index: 1;
 }
 
-#municipioSelect {
-  width: 250px;
-  padding: 6px;
+
+/* ===== PANEL DE FILTROS ===== */
+#filtros {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+
+  background: white;
+  padding: 10px 12px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  width: auto;        /* 👈 CLAVE */
+  max-width: 340px;   /* 👈 CLAVE */
 }
-*/
+
+/* Label */
+#filtros label {
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Choices */
+.choices {
+  width: 220px;       /* 👈 aquí controlas el ancho */
+}
+
+.choices__inner {
+  min-height: 36px;
+  border-radius: 6px;
+}
