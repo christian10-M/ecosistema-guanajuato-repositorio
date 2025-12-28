@@ -24,7 +24,7 @@ AND LONGITUD BETWEEN -180 AND 180
 $params = [];
 
 if ($municipio) {
-  $sql .= " AND UPPER(MUNICIPIO) = :municipio";
+  $sql .= " AND UPPER(`Nombre Municipio`) = :municipio";
   $params[':municipio'] = strtoupper($municipio);
 }
 

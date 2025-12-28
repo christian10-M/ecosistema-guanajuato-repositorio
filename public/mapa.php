@@ -15,13 +15,13 @@
   <link rel="stylesheet" href="/ecosistema-guanajuato-repositorio/public/css/mapa.css">
 <!-- CHOICES.JS -->
  <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
-
+<!--Inserta un header común-->
+  <?php include 'includes/header.php'; ?>
 
 </head>
 
 <body>
-<!--Inserta un header común-->
-  <?php include 'includes/header.php'; ?>
+
 <div id="map-wrapper">
 
   <div id="filtros">
@@ -29,6 +29,10 @@
   <select id="municipioSelect">
     <option value="">Todos</option>
   </select>
+
+   <!-- BOTÓN LIMPIAR -->
+  <button id="btnLimpiar" type="button">🧹</button>
+  
 </div>
 
 <div id="map"></div>

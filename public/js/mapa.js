@@ -9,6 +9,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 //SELECT: CONTROLADOR DEL FILTRO
 //Todo reacciona a lo que diga el filtro
 const municipioSelect = document.getElementById('municipioSelect');
+const btnLimpiar = document.getElementById('btnLimpiar');
+
 
 const choicesMunicipio = new Choices(municipioSelect, {
   searchEnabled: true, //ACTIVA EL BUSCADOR
@@ -174,4 +176,19 @@ municipioSelect.addEventListener('change', () => {
   const municipio = municipioSelect.value;
   recargarCapas(municipio);
 });
+
+btnLimpiar.addEventListener('click', () => {
+  // 1. Reset visual del select (Choices)
+  choicesMunicipio.clearStore();
+  choicesMunicipio.setChoiceByValue('');
+
+  // 2. Recargar capas sin filtro
+  recargarCapas();
+
+  // (opcional pero elegante)
+  map.setView([21.02, -101.25], 8);
+});
+
+
+
 

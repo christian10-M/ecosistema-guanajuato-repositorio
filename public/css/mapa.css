@@ -27,7 +27,7 @@ html, body {
 #filtros {
   position: absolute;
   top: 20px;
-  left: 20px;
+  left: 80px;
   z-index: 1000;
 
   background: white;
@@ -59,3 +59,17 @@ html, body {
   min-height: 36px;
   border-radius: 6px;
 }
+
+#btnLimpiar {
+  border: none;
+  background: #f2f2f2;
+  border-radius: 6px;
+  padding: 6px 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#btnLimpiar:hover {
+  background: #e0e0e0;
+}
+
