@@ -14,9 +14,14 @@
   <!-- CSS mapa -->
   <link rel="stylesheet" href="/ecosistema-guanajuato-repositorio/public/css/mapa.css">
 <!-- CHOICES.JS -->
+<<<<<<< HEAD
  <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
 <!--Inserta un header común-->
   <?php include 'includes/header.php'; ?>
+=======
+  <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
+
+>>>>>>> 487fefa3c2b3b6b47098fe2b3e203e0d149b40dc
 
 </head>
 
@@ -45,7 +50,7 @@
 <!-- Fullscreen plugin -->
 <script src="https://unpkg.com/leaflet.fullscreen@1.6.0/Control.FullScreen.js"></script>
 <!-- CHOICES -->
- <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 <!--Importar el js del mapa-->
 <script src="js/mapa.js"></script>
 <!-- Ctrl K + Ctrl C :ATAJO PARA COMENTAR -->
