@@ -73,3 +73,30 @@ html, body {
   background: #e0e0e0;
 }
 
+.popup-mina {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.btn-ver-mas,
+.btn-ver-mas:link,
+.btn-ver-mas:visited {
+  color: #f2f2f2;
+  text-decoration: none;
+}
+
+.btn-ver-mas {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 5px 8px;
+  background: #3c883f;
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.btn-ver-mas:hover {
+  background: #3c883f;
+  color: #000000;
+}

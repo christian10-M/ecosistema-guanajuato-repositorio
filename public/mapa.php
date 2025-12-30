@@ -14,14 +14,12 @@
   <!-- CSS mapa -->
   <link rel="stylesheet" href="/ecosistema-guanajuato-repositorio/public/css/mapa.css">
 <!-- CHOICES.JS -->
-<<<<<<< HEAD
- <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
+<link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
 <!--Inserta un header común-->
   <?php include 'includes/header.php'; ?>
-=======
+
   <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
 
->>>>>>> 487fefa3c2b3b6b47098fe2b3e203e0d149b40dc
 
 </head>
 

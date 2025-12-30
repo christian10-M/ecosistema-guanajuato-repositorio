@@ -7,6 +7,7 @@ $municipio = $_GET['municipio'] ?? null;
 
 $sql = "
 SELECT
+  id,
   Latitud  AS lat,
   Longitud AS lng,
   Nombre AS nombre,

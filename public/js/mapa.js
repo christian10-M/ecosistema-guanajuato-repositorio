@@ -113,8 +113,17 @@ cargarCapa({
   color: '#b30000',
   municipio,
   popup: p => `
-    <strong>Nombre:</strong> ${p.nombre}<br>
-    <strong>Municipio:</strong> ${p.municipio}
+    <div class="popup-mina">
+      <strong>${p.nombre ?? 'Mina sin nombre'}</strong><br>
+      <span>${p.municipio}</span><br><br>
+
+      <a 
+        href="informacion.php?tipo=mina&id=${p.id}" 
+        class="btn-ver-mas"
+      >
+        Ver más información →
+      </a>
+    </div>
   `
 });
 
@@ -135,8 +144,13 @@ cargarCapa({
   color: '#bb13e1ff',
   municipio,
   popup: p => `
-    <strong>Nombre:</strong> ${p.nombre}<br>
-    <strong>Municipio:</strong> ${p.municipio}
+    <div class="popup-retc">
+      <strong>${p.nombre}</strong><br>
+      <span>${p.municipio}</span><br><br>
+
+      <a href="informacion.php?tipo=retc&id=${p.id}" class="btn-ver-mas">        Ver información →
+      </a>
+    </div>
   `
 });
 
