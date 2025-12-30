@@ -192,8 +192,9 @@ municipioSelect.addEventListener('change', () => {
 });
 
 btnLimpiar.addEventListener('click', () => {
-  // 1. Reset visual del select (Choices)
-  choicesMunicipio.clearStore();
+
+  // 1. Quitar selección del select (sin borrar opciones)
+  choicesMunicipio.removeActiveItems();
   choicesMunicipio.setChoiceByValue('');
 
   // 2. Recargar capas sin filtro
