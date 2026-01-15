@@ -48,7 +48,8 @@ const capaLadrilleras = L.layerGroup().addTo(map);
 const capaRETC = L.layerGroup().addTo(map);
 //CAPA SALUD
 const capaSalud = L.layerGroup().addTo(map);
-
+//CAPA SALUD
+const capaCasos = L.layerGroup().addTo(map);
 
 
 //Conexion con el backend
@@ -164,6 +165,20 @@ cargarCapa({
     <strong>Municipio:</strong> ${p.municipio}
   `
 });
+
+cargarCapa({
+    url: 'api/casos.php',
+    capa: capaCasos,
+    color: '#0d000aff',
+    municipio,
+    popup: p => `
+      <strong>Edad:</strong> ${p.edad}<br>
+      <strong>Diagnóstico:</strong> ${p.dgx}<br>
+      <strong>Sexo:</strong> ${p.sexo == 1 ? 'Hombre' : 'Mujer'}<br>
+      <strong>Año diagnóstico:</strong> ${p.FechaDgx}
+    `
+});
+
 }
 
 //Caja para activar/desactivar capas
@@ -172,7 +187,8 @@ L.control.layers(null, {
   "Minas": capaMinas,
   "Ladrilleras": capaLadrilleras,
   "RETC":capaRETC,
-  "Servicios de Salud":capaSalud
+  "Servicios de Salud":capaSalud,
+  "Casos Cancer De Mama":capaCasos
 }).addTo(map);
 
 //Boton de ampliar pantalla
