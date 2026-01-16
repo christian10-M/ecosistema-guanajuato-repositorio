@@ -25,6 +25,7 @@
     <a href="index.php">Inicio</a>
     <a href="mapa.php">Mapa</a>
     <a href="poblacion.php">Población</a>
+    <a href="dashboard.php">Análisis de datos</a>
   </nav>
 </header>
 
