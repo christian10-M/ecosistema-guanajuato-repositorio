@@ -1,10 +1,73 @@
+function normalizar(texto) {
+  return texto
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "") // quita acentos
+    .toUpperCase()
+    .replace(/\bDE\b/g, "") // 👈 quitar "DE"
+    .replace(/\s+/g, " ")   // espacios dobles
+    .trim();
+}
+
+
 //Crea el mapa con centro en Guanajuato
 const map = L.map('map').setView([21.02, -101.25], 8);
+
+// CAPA DE MUNICIPIOS (GeoJSON)
+let capaMunicipios;
 
 //Capa básica
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '© OpenStreetMap'
 }).addTo(map);
+
+fetch('data/guanajuato_vector2.json?v=' + Date.now())
+
+.then(r => r.json())
+  .then(geojson => {
+
+    console.log("LO QUE REALMENTE TIENE EL ARCHIVO:", geojson);
+
+    console.log("¿Tiene features?:", geojson.features);
+    console.log("Tipo:", geojson.type);
+
+    capaMunicipios = L.geoJSON(geojson, {
+      
+      style: {
+        color: '#444',
+        weight: 1.5,
+        fillColor: '#ccc',
+        fillOpacity: 0.15
+      },
+
+      onEachFeature: (feature, layer) => {
+          console.log("PROPIEDADES:", feature.properties);
+
+
+        const nombre = feature.properties.NOMGEO;
+
+        // Tooltip con nombre
+        layer.bindTooltip(nombre);
+
+        // Hover
+        layer.on('mouseover', () => {
+          layer.setStyle({
+            fillOpacity: 0.35,
+            weight: 2
+          });
+        });
+
+        layer.on('mouseout', () => {
+          capaMunicipios.resetStyle(layer);
+        });
+
+      }
+
+    }).addTo(map);
+
+    console.log("BOUNDS:", capaMunicipios.getBounds());
+
+
+  });
 
 //SELECT: CONTROLADOR DEL FILTRO
 //Todo reacciona a lo que diga el filtro
@@ -48,6 +111,7 @@ const capaLadrilleras = L.layerGroup().addTo(map);
 const capaRETC = L.layerGroup().addTo(map);
 //CAPA SALUD
 const capaSalud = L.layerGroup().addTo(map);
+
 
 
 
@@ -164,6 +228,45 @@ cargarCapa({
     <strong>Municipio:</strong> ${p.municipio}
   `
 });
+
+// ======= LÓGICA DE MUNICIPIOS =======
+if (capaMunicipios) {
+
+  if (!municipio) {
+    // SIN FILTRO → mostrar todo Guanajuato
+    capaMunicipios.eachLayer(l => {
+      capaMunicipios.resetStyle(l);
+    });
+
+    map.setView([21.02, -101.25], 8);
+  } 
+  else {
+    // CON FILTRO → resaltar municipio
+    capaMunicipios.eachLayer(layer => {
+
+      const nom = layer.feature.properties.NOMGEO;
+
+if (normalizar(nom) === normalizar(municipio)) {
+
+        layer.setStyle({
+          fillColor: '#00bfff',
+          fillOpacity: 0.5,
+          weight: 3,
+          color: '#005f99'
+        });
+
+        // Zoom automático
+        map.fitBounds(layer.getBounds());
+
+      } else {
+        capaMunicipios.resetStyle(layer);
+      }
+
+    });
+  }
+
+}
+
 }
 
 //Caja para activar/desactivar capas

@@ -50,7 +50,7 @@
 <!-- CHOICES -->
   <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 <!--Importar el js del mapa-->
-<script src="js/mapa.js"></script>
+<script src="js/mapa.js?v=15"></script>
 <!-- Ctrl K + Ctrl C :ATAJO PARA COMENTAR -->
 </body>
 </html>
